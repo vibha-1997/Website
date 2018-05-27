@@ -1,0 +1,9 @@
+{% if sizes %}
+    <ul>
+    {% for size in sizes %}
+        <li><a href="#">{{ size.cat_width }} X {{ size.cat_height }}</a> </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No sizes in this category are available.</p>
+{% endif %}
