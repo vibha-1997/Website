@@ -7,7 +7,7 @@ from . import views
 urlpatterns = [
     
     url(r'^$', views.home, name='home'),
-    url(r'^details/(?P<category_id>[0-9]+)/$',views.details,name='details'),
+    url(r'^details/(?P<pc_name_id>[0-9]+)/$',views.details,name='details'),
     url(r'^accounts/register/$',views.register, name='register'),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^registration/', include('registration.auth_urls')),

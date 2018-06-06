@@ -1,9 +1,13 @@
-{% if sizes %}
-    <ul>
-    {% for size in sizes %}
-        <li><a href="#">{{ size.cat_width }} X {{ size.cat_height }}</a> </li>
+{% load static %}
+{% if products_list %}
+    
+    {% for prod in products_list %}
+    <p>{{prod.photo}}</p>
+    <img src= "{% static '' %}website/{{prod.photo}}"/>
     {% endfor %}
-    </ul>
+
+    
+     
 {% else %}
     <p>No sizes in this category are available.</p>
 {% endif %}

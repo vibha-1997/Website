@@ -12,7 +12,7 @@ from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from website.forms import UserForm, UserProfileForm
 from website.tokens import account_activation_token
-from .models import room_category,room_category_size
+from .models import room_category,room_category_size,product_category,products
 
 # Create your views here.
 @login_required
@@ -21,9 +21,12 @@ def home(request):
     context = {'latest_category_list': latest_category_list}
     return render(request, 'home.html',context)
 @login_required
-def details(request,category_id):
-    sizes=room_category_size.objects.filter(category=category_id)
-    context={'sizes':sizes}
+def details(request,pc_name_id):
+    product_cat_list=product_category.objects.all()
+    products_list=products.objects.all()
+    context={'products_list':products_list}
+
+    
     return render(request,'details.html',context)
 
 def register(request):

@@ -33,6 +33,20 @@ class room_category(models.Model):
 
     def __str__(self):
         return self.cat_name
+class product_category(models.Model):
+    name=models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+
+class products(models.Model):
+    pc_name=models.ForeignKey(product_category,on_delete=models.CASCADE)
+    product_name=models.CharField(max_length=200)
+    photo=models.CharField(max_length=200)
+    price=models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.product_name
 
 
 class room_category_size(models.Model):
