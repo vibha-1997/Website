@@ -49,6 +49,14 @@ class products(models.Model):
         return self.product_name
 
 
+class selected_products(models.Model):
+    u_pk=models.IntegerField()
+    p_pk=models.IntegerField()
+
+    def __str__(self):
+        return "{0} {1}".format(self.u_pk,self.p_pk)
+
+
 class room_category_size(models.Model):
     category = models.ForeignKey(room_category, on_delete=models.CASCADE)
     cat_width=models.IntegerField(default=0)

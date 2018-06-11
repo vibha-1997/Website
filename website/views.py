@@ -12,8 +12,8 @@ from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from website.forms import UserForm, UserProfileForm
 from website.tokens import account_activation_token
-from .models import room_category,room_category_size,product_category,products
-
+from .models import room_category,room_category_size,product_category,products,selected_products
+from django.http import HttpResponse
 # Create your views here.
 @login_required
 def home(request):
@@ -28,6 +28,15 @@ def details(request,pc_name_id):
 
     
     return render(request,'details.html',context)
+@login_required
+def selected(request,u_pk,p_pk):
+  #  user=User.objects.get(pk=u_pk)
+  #  if(user.is_active==True):
+    p=selected_products(u_pk=u_pk,p_pk=p_pk)
+    p.save()
+
+    return HttpResponse("p is added")
+
 
 def register(request):
     #registered = False
