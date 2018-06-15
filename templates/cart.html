@@ -1,0 +1,8 @@
+<p> {{ user.username }}'s products </p>
+{% if user_products  %}
+{% for prod in user_products %}
+<p>{{prod}}</p>
+{% endfor %}
+{% else %}
+    <p>No products in cart.</p>
+{% endif %}

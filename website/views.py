@@ -44,6 +44,16 @@ def selected(request,u_pk,p_pk,c_pk):
 
     return HttpResponse("p is added")
 
+@login_required
+def get_cart(request,u_pk):
+    r=selected_productss.objects.filter(u_pk=u_pk)
+    context=[]
+    for pro in r:
+        q=products.objects.filter(id=r[0].id)
+        context.append(q[0].product_name)
+    context={'user_products':context}
+    return render(request,'cart.html',context)
+
 
 def register(request):
     #registered = False

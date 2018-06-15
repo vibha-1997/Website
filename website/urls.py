@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^details/(?P<pc_name_id>[0-9]+)/$',views.details,name='details'),
     url(r'^accounts/register/$',views.register, name='register'),
     url(r'^user_selected_product/(?P<u_pk>[0-9]+)/(?P<p_pk>[0-9]+)/(?P<c_pk>[0-9]+)$',views.selected,name='selected'),
+    url(r'^get_cart/(?P<u_pk>[0-9]+)$',views.get_cart,name='get_cart'),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^registration/', include('registration.auth_urls')),
     url(r'^login/', auth_views.login, name='login'),
