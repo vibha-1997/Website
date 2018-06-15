@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+from django.shortcuts import get_object_or_404, render
 
 from django.shortcuts import render
 from django.contrib.auth import login
@@ -12,7 +13,7 @@ from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from website.forms import UserForm, UserProfileForm
 from website.tokens import account_activation_token
-from .models import room_category,room_category_size,product_category,products,selected_products
+from .models import room_category,room_category_size,product_category,products,selected_productss
 from django.http import HttpResponse
 # Create your views here.
 @login_required
@@ -29,10 +30,16 @@ def details(request,pc_name_id):
     
     return render(request,'details.html',context)
 @login_required
-def selected(request,u_pk,p_pk):
+def selected(request,u_pk,p_pk,c_pk):
   #  user=User.objects.get(pk=u_pk)
-  #  if(user.is_active==True):
-    p=selected_products(u_pk=u_pk,p_pk=p_pk)
+
+    p=selected_productss(u_pk=u_pk,p_pk=p_pk,c_pk=c_pk)
+    r=selected_productss.objects.filter(c_pk=c_pk)
+    q=r.count()
+    if(q>=1):
+        r.delete()
+        p.save()
+
     p.save()
 
     return HttpResponse("p is added")

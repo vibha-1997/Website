@@ -49,9 +49,10 @@ class products(models.Model):
         return self.product_name
 
 
-class selected_products(models.Model):
+class selected_productss(models.Model):
     u_pk=models.IntegerField()
     p_pk=models.IntegerField()
+    c_pk=models.IntegerField()
 
     def __str__(self):
         return "{0} {1}".format(self.u_pk,self.p_pk)

@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from website.models import UserProfile,room_category_size,room_category,dimensions,product_category,products,selected_products
+from website.models import UserProfile,room_category_size,room_category,dimensions,product_category,products,selected_productss
 
 
 admin.site.register(UserProfile)
@@ -11,6 +11,6 @@ admin.site.register(room_category_size)
 admin.site.register(dimensions)
 admin.site.register(product_category)
 admin.site.register(products)
-admin.site.register(selected_products)
+admin.site.register(selected_productss)
 
 # Register your models here.
