@@ -11,10 +11,9 @@ from django.utils import six
 class UserProfile(models.Model):
     user = models.OneToOneField(User,related_name='profile', primary_key=True)
     email_confirmed = models.BooleanField(default=False)
-#    college = models.CharField(max_length=10,blank=False)
-#    branch = models.CharField(max_length=10,blank=False)
-#    year = models.CharField(max_length=10,blank=False)
-    phone_no = models.CharField(max_length=10,blank=False)
+    college = models.CharField(max_length=10,blank=False)
+    branch = models.CharField(max_length=10,blank=False)
+    year = models.CharField(max_length=10,blank=False)
 
     def __unicode__(self):
         return unicode(self.user)

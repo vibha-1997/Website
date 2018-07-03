@@ -1,12 +1,10 @@
 {% extends "registration/registration_base.html" %}
 
 {% block content %}
-
-    
-    <div class="container">
+<div class="container">
         <div class="row">
             <div class="col s6 offset-s3 form-area">
-                <div class="form-head"><h4>Password change</h4></div>
+                <div class="form-head"><h4>log In</h4></div>
                     <form method="POST" action=".">
                         {% csrf_token %}
                         {{form}}
@@ -16,7 +14,6 @@
             </div>
         </div>
     </div>
-
 {% endblock %}
 
 
