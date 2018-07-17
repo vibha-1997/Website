@@ -8,7 +8,7 @@
 		<title>Create design</title>
 		<meta name="description" content="Fullscreen Layout with Page Transitions" />
 		<meta name="keywords" content="fullscreen layout, boxes, responsive, page transitions, css transitions, jquery, portfolio, template" />
-        	
+        <link href="images/favicon.png" rel="icon" type="image/x-icon" />	
         <link rel="stylesheet" type="text/css" href="{% static 'website/css/Create_design.css' %}" />
 		<script src="{% static 'website/js/modernizr.custom.js' %}"></script>
 	</head>
@@ -18,7 +18,7 @@
 			<div id="bl-main" class="bl-main">
 				<section>
 					<div class="bl-box">
-						<h2 id="living_box">LIVING ROOM</h2>
+						<h2 id="living_box">Living Room</h2>
 					</div>
 
 					<div class="bl-content">
@@ -27,27 +27,32 @@
 						</div>
 						<ul id="panels">
 							<li id="side_panel">	
-								<button id="button_living">{{latest_category_list.1}}</button>
+								<button id="button_living">Living Room</button>
 								<ul id="sub_Cat_living" style="list-style: none;">
-									<li  id="living_subCat1"><button id="btn_subCat1">{{product_cat.1}}</button>
+									<li  id="living_subCat1"><button id="btn_subCat1">Almirah</button>
                                        <ul id="living_product_Cat1">
-                                         {%for product in product_ids%}
-                                         {% if product.pc_name|stringformat:"s" == product_cat.1|stringformat:"s" %}
-                                	     <li  id="living_product1"><button id="btn"><img src="{% static '' %}website/images/{{product.photo}}"/></button></li>
-                                	     {%endif%}
-                                	     {% endfor %}
-                                	     
+                                	     <li  id="living_product1"><button id="btn">A</button></li>
+                                	     <li  id="living_product1"><button id="btn">B</button></li>
+                                	     <li  id="living_product1"><button id="btn">C</button></li><br>
+                                	     <li  id="living_product1"><button id="btn">A</button></li>
+                                	     <li  id="living_product1"><button id="btn">B</button></li>
+                                	     <li  id="living_product1"><button id="btn">C</button></li><br>
+                                	     <li  id="living_product1"><button id="btn">A</button></li>
+                                	     <li  id="living_product1"><button id="btn">B</button></li>
+                                	     <li  id="living_product1"><button id="btn">C</button></li>
                                        </ul>
 									</li>
-                                	<li  id="living_subCat2"><button id="btn_subCat2">{{product_cat.0}}</button>
+                                	<li  id="living_subCat2"><button id="btn_subCat2">TV set</button>
                                        <ul id="living_product_Cat2">
-                                         
-                                         {%for product in product_ids%}
-                                         {% if product.pc_name|stringformat:"s" == product_cat.0|stringformat:"s" %}
-                                	     <li  id="living_product2"><button id="btn"><img src="{% static '' %}website/images/{{product.photo}}"/></button>
-                                	     </li>
-                                	     {%endif%}
-                                	     {% endfor %}
+                                	     <li  id="living_product2"><button id="btn">A</button></li>
+                                	     <li  id="living_product2"><button id="btn">B</button></li>
+                                	     <li  id="living_product2"><button id="btn">C</button></li><br>
+                                	     <li  id="living_product2"><button id="btn">A</button></li>
+                                	     <li  id="living_product2"><button id="btn">B</button></li>
+                                	     <li  id="living_product2"><button id="btn">C</button></li><br>
+                                	     <li  id="living_product2"><button id="btn">A</button></li>
+                                	     <li  id="living_product2"><button id="btn">B</button></li>
+                                	     <li  id="living_product2"><button id="btn">C</button></li>
                                        </ul>
                                 	</li>
 								</ul>
@@ -68,26 +73,32 @@
 						</div>
 						<ul id="panels">
 							<li id="side_panel">
-						      <button id="button_kitchen">{{latest_category_list.0}}n</button>
+						      <button id="button_kitchen">Kitchen</button>
 								<ul id="sub_Cat_kitchen" style="list-style: none;">
-									<li  id="kitchen_subCat1"><button id="btn_subCat3">{{product_cat.2}}</button>
+									<li  id="kitchen_subCat1"><button id="btn_subCat3">Fridge</button>
                                        <ul id="kitchen_product_Cat1">
-                                         {%for product in product_ids%}
-                                         {% if product.pc_name|stringformat:"s" == product_cat.2|stringformat:"s" %}
-                                	     <li  id="kitchen_product1"><button id="btn"><img src="{% static '' %}website/images/{{product.photo}}"/></button></li>
-                                	     {%endif%}
-                                	     {% endfor %}
-                                	     
+                                	     <li  id="kitchen_product1"><button id="btn">A</button></li>
+                                	     <li  id="kitchen_product1"><button id="btn">B</button></li>
+                                	     <li  id="kitchen_product1"><button id="btn">C</button></li><br>
+                                	     <li  id="kitchen_product1"><button id="btn">A</button></li>
+                                	     <li  id="kitchen_product1"><button id="btn">B</button></li>
+                                	     <li  id="kitchen_product1"><button id="btn">C</button></li><br>
+                                	     <li  id="kitchen_product1"><button id="btn">A</button></li>
+                                	     <li  id="kitchen_product1"><button id="btn">B</button></li>
+                                	     <li  id="kitchen_product1"><button id="btn">C</button></li>
                                        </ul>
 									</li>
-                                	<li  id="kitchen_subCat2"><button id="btn_subCat4">{{product_cat.3}}</button>
+                                	<li  id="kitchen_subCat2"><button id="btn_subCat4">Chimney</button>
                                        <ul id="kitchen_product_Cat2">
-                                         {%for product in product_ids%}
-                                         {% if product.pc_name|stringformat:"s" == product_cat.3|stringformat:"s" %}
-                                	     <li  id="kitchen_product2"><button id="btn"><img src="{% static '' %}website/images/{{product.photo}}"/></button></li>
-                                	     {%endif%}
-                                	     {% endfor %}
-                                	     
+                                	     <li  id="kitchen_product2"><button id="btn">A</button></li>
+                                	     <li  id="kitchen_product2"><button id="btn">B</button></li>
+                                	     <li  id="kitchen_product2"><button id="btn">C</button></li><br>
+                                	     <li  id="kitchen_product2"><button id="btn">A</button></li>
+                                	     <li  id="kitchen_product2"><button id="btn">B</button></li>
+                                	     <li  id="kitchen_product2"><button id="btn">C</button></li><br>
+                                	     <li  id="kitchen_product2"><button id="btn">A</button></li>
+                                	     <li  id="kitchen_product2"><button id="btn">B</button></li>
+                                	     <li  id="kitchen_product2"><button id="btn">C</button></li>
                                        </ul>
                                 	</li>
 								</ul>

@@ -14,21 +14,35 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from website.forms import UserForm, UserProfileForm
 from website.tokens import account_activation_token
 from .models import room_category,room_category_size,product_category,products,selected_productss
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
+from django.views.decorators.cache import cache_control
+from django.conf import settings
 # Create your views here.
+
+def welcome(request):
+    return render(request,'welcome.html')
+
 @login_required
-def home(request):
-    latest_category_list = room_category.objects.all()
-    context = {'latest_category_list': latest_category_list}
-    return render(request, 'home.html',context)
+def  welcome2(request):
+    return render(request,'welcome2.html')
+
+@login_required
+def create_design(request):
+    return render(request,'create_design.html')
+    
+#def home(request):
+#    latest_category_list = room_category.objects.all()
+#    context = {'latest_category_list': latest_category_list}
+#    return render(request, 'welcome.html',context)
+
+    
 @login_required
 def details(request,pc_name_id):
     product_cat_list=product_category.objects.all()
     products_list=products.objects.all()
     context={'products_list':products_list}
 
-    
-    return render(request,'details.html',context)
+
 @login_required
 def selected(request,u_pk,p_pk,c_pk):
   #  user=User.objects.get(pk=u_pk)
@@ -41,7 +55,7 @@ def selected(request,u_pk,p_pk,c_pk):
         p.save()
 
     p.save()
-
+ 
     return HttpResponse("p is added")
 
 @login_required

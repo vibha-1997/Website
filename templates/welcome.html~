@@ -42,7 +42,7 @@
                   <li><div class="dropdown">
                     <p class="dropdown-toggle" data-toggle="dropdown">Account<span class="caret"></span></p>
                     <ul class="dropdown-menu">
-                      <li><a href="logIn.html" id="link">LogIn</a></li>
+                      <li><a href="{% url 'login' %}" id="link">LogIn</a></li>
                       <li><a href="logIn.html" id="link">SignUp</a></li>
                     </ul>
                   </div></li>
@@ -51,7 +51,7 @@
         </div>
   </nav>
   <img src="{% static '' %}website/images/2.jpg" alt="index image" id="inter">
-  <h3 id="welcome_user">Welcome Himani</h3>
+  <h3 id="welcome_user">Welcome </h3>
   <div class="panel panel-default container" id="design">
       <h3 id="start_design" align="center">Start Designing</h3>
       <img src="{% static '' %}website/images/underline.jpeg" id="underline" align="center"/>
@@ -70,7 +70,7 @@
               </div>
           </div>
       </div>
-      <a href="Create_design.html" style="text-decoration: none;"><button id="create_button" style="outline-style: none;">Create your own design</button></a>
+      <a href="{% url 'login' %}" style="text-decoration: none;"><button id="create_button" style="outline-style: none;">Create your own design</button></a>
   </div>
   <div class="container contact animated fadeIn">
             <div class="row ">

@@ -50,13 +50,14 @@ class products(models.Model):
         return self.product_name
 
 
-class selected_productss(models.Model):
-    u_pk=models.IntegerField()
-    p_pk=models.IntegerField()
-    c_pk=models.IntegerField()
+class selection(models.Model):
+    user_cat=models.IntegerField(primary_key=True)
+    product_cat=models.IntegerField()
+    product_pk=models.IntegerField()
 
     def __str__(self):
-        return "{0} {1}".format(self.u_pk,self.p_pk)
+        return "{0} {1} {2}".format(self.user_cat,self.product_cat,self.product_pk)
+
 
 
 class room_category_size(models.Model):

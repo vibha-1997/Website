@@ -13,7 +13,7 @@ from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from website.forms import UserForm, UserProfileForm
 from website.tokens import account_activation_token
-from .models import room_category,room_category_size,product_category,products,selected_productss
+from .models import room_category,room_category_size,product_category,products,selection
 from django.http import HttpResponse,HttpResponseRedirect
 from django.views.decorators.cache import cache_control
 from django.conf import settings
@@ -28,7 +28,27 @@ def  welcome2(request):
 
 @login_required
 def create_design(request):
-    return render(request,'create_design.html')
+    latest_category_list = room_category.objects.all()
+    product_cat=product_category.objects.all()
+    product_ids=products.objects.all()
+    context = {'latest_category_list': latest_category_list,'product_cat':product_cat,'product_ids':product_ids}
+    return render(request, 'create_design.html',context)
+
+@login_required
+def selected_products(request,u_pk,p_pk,c_pk):
+    #return HttpResponse('p is hit')
+    p=selection(u_pk,p_pk,c_pk)
+    q=selection.objects.filter(product_cat=c_pk)
+    r=q.count()
+    if(r>=1):
+        q.delete()
+        
+        p.save()
+    else:
+        p.save()
+
+    return HttpResponseRedirect('/user')
+    
     
 #def home(request):
 #    latest_category_list = room_category.objects.all()
@@ -43,20 +63,7 @@ def details(request,pc_name_id):
     context={'products_list':products_list}
 
 
-@login_required
-def selected(request,u_pk,p_pk,c_pk):
-  #  user=User.objects.get(pk=u_pk)
 
-    p=selected_productss(u_pk=u_pk,p_pk=p_pk,c_pk=c_pk)
-    r=selected_productss.objects.filter(c_pk=c_pk)
-    q=r.count()
-    if(q>=1):
-        r.delete()
-        p.save()
-
-    p.save()
-
-    return HttpResponse("p is added")
 
 @login_required
 def get_cart(request,u_pk):

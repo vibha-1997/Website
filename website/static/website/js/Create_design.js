@@ -124,9 +124,9 @@ var Boxlayout = (function() {
 			return false;
 
 		} );
-
+        
 	}
 
 	return { init : init };
-
+    
 })();
